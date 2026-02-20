@@ -142,7 +142,7 @@ export const Navbar = () => {
 						className='h-full bg-border'
 					/>
 					<Button
-						onClick={() => router.push("/user/app/(auth)/login")}
+						onClick={() => router.push("/login")}
 						className='cursor-pointer w-33 h-13 font-heading font-extrabold bg-purple-500 hover:bg-purple-950'>
 						Sign In
 					</Button>
@@ -168,8 +168,8 @@ export const Navbar = () => {
 						</CommandItem>
 
 						<CommandItem
-							onSelect={() => router.push("/user/app/(Blogs)")}>
-							Blogs
+							onSelect={() => router.push("/user/app/(Blogs)")}>  
+							Blogs {/*  Create a folder inside blog*/}
 						</CommandItem>
 					</CommandList>
 				</div>

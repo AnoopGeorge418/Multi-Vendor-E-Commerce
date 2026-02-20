@@ -6,14 +6,23 @@ import os
 from app.auth.signup.signup_routes import router as signup_router
 from app.core.db_connection import engine, Base
 from app.models import * 
+from fastapi.middleware.cors import CORSMiddleware
 
 # reads all .env variables and values
 load_dotenv()
 
-PORT = int(os.getenv("PORT"))
+PORT = int(os.getenv("PORT", 8000))
 
 # initlizing fast api app
 app = FastAPI(title='Rivora App')
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Create tables
 Base.metadata.create_all(bind=engine)
